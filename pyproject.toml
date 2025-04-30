@@ -70,7 +70,7 @@ target-version = "py38"
 exclude = [ "rasa_sdk/grpc_py", "eggs", ".git", ".pytest_cache", "build", "dist", ".DS_Store",]
 
 [tool.poetry.dependencies]
-python = ">3.8,<3.13"
+python = ">3.9,<3.13"
 coloredlogs = ">=10,<16"
 sanic = "*"
 typing-extensions = ">=4.1.1,<5.0.0"
@@ -110,6 +110,7 @@ sanic-testing = "*"
 h11 = "0.16.0"
 httpcore = "^1"
 httpx  = "^0"
+anyio = "4.9.0" 
 
 [tool.ruff.lint]
 ignore = [ "D100", "D101", "D102", "D103", "D104", "D105", "RUF005",]
