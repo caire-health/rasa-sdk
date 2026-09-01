@@ -90,6 +90,7 @@ grpcio-tools = "^1.60"
 setuptools = ">=83.0.0"  # CVE-2026-59890: vulnerable < 83.0.0
 zipp = "^3.19"
 requests = "^2.32"
+click = ">=8.2.0"             # CVE-2026-7246: vulnerable <= 8.1.8
 idna = ">=3.15"  # CVE-2026-45409: vulnerable < 3.15
 urllib3 = ">=2.7.0"  # CVE-2026-44431/CVE-2026-44432: vulnerable < 2.7.0
 ujson = ">=5.12.2"  # CVE-2026-44660/CVE-2026-54911: vulnerable <= 5.12.1
