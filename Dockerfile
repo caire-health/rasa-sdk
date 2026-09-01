@@ -41,7 +41,7 @@ WORKDIR /app
 # hadolint ignore=SC1091,DL3013
 RUN python -m venv /opt/venv && \
   . /opt/venv/bin/activate && \
-  pip install --no-cache-dir -U pip && \
+  pip install --no-cache-dir "pip>=25.1.1" && \
   pip install --no-cache-dir wheel && \
   poetry install --no-dev --no-root --no-interaction
 
@@ -61,7 +61,7 @@ RUN find . -name '*.whl' -maxdepth 1 -exec basename {} \; | awk -F - '{ gsub("_"
   && rm -rf /opt/venv \
   && python -m venv /opt/venv \
   && . /opt/venv/bin/activate \
-  && pip install --no-cache-dir -U pip \
+  && pip install --no-cache-dir "pip>=25.1.1" \
   && pip install --no-cache-dir --no-index --find-links=/wheels -r /wheels/requirements.txt \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
   && rm -rf /wheels \
