@@ -22,6 +22,7 @@ ARG POETRY_VERSION=1.8.2
 
 # hadolint ignore=DL3008
 RUN apt-get update -qq \
+   && apt-get dist-upgrade -y --no-install-recommends \
    && apt-get install -y --no-install-recommends \
     curl \
     && apt-get autoremove -y
@@ -39,7 +40,8 @@ COPY . /app/
 WORKDIR /app
 
 # hadolint ignore=SC1091,DL3013
-RUN python -m venv /opt/venv && \
+RUN pip install --no-cache-dir "pip>=25.1.1" && \
+  python -m venv /opt/venv && \
   . /opt/venv/bin/activate && \
   pip install --no-cache-dir "pip>=25.1.1" && \
   pip install --no-cache-dir wheel && \
@@ -75,6 +77,10 @@ COPY ./entrypoint.sh /app/
 COPY --from=python_builder /opt/venv /opt/venv
 
 ENV PATH="/opt/venv/bin:$PATH"
+
+# upgrade system pip (Ubuntu 22.04 ships 23.0.1 which has known CVEs)
+# hadolint ignore=DL3013
+RUN pip install --no-cache-dir "pip>=25.1.1"
 
 # update permissions & change user
 RUN chgrp -R 0 /app && chmod -R g=u /app
