@@ -251,13 +251,21 @@ def run(
     host = os.environ.get("SANIC_HOST", "0.0.0.0")
 
     logger.info(f"Action endpoint is up and running on {protocol}://{host}:{port}")
-    app.run(
-        host=host,
-        port=port,
-        ssl=ssl_context,
-        workers=utils.number_of_sanic_workers(),
-        legacy=True,
-    )
+    workers = utils.number_of_sanic_workers()
+    if workers > 1:
+        app.run(
+            host=host,
+            port=port,
+            ssl=ssl_context,
+            workers=workers,
+        )
+    else:
+        app.run(
+            host=host,
+            port=port,
+            ssl=ssl_context,
+            single_process=True,
+        )
 
 
 def set_http_span_attributes(

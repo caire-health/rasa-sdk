@@ -9,6 +9,10 @@ RUN apt-get update -qq \
       python3-venv \
       python3-pip \
       python3-dev \
+      libc6 \
+      libsqlite3-0 \
+      libpcre2-8-0 \
+      perl-base \
     && apt-get autoremove -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
