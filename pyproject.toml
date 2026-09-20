@@ -99,6 +99,7 @@ googleapis-common-protos = "^1.65"
 h11 = "0.16.0"
 httpcore = "^1"
 httpx  = "^0.28"
+anyio = ">=4.14.2"  # CVE-2026-64847: TLS certificate spoofing via IDNA 2003 hostname encoding
 
 [tool.poetry.dev-dependencies]
 pytest-cov = "^4.1.0"
