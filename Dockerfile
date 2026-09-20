@@ -84,7 +84,7 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 # upgrade system pip (Ubuntu 22.04 ships 23.0.1 which has known CVEs)
 # hadolint ignore=DL3013
-RUN pip install --no-cache-dir "pip>=26.1.2"
+RUN /usr/bin/pip install --no-cache-dir "pip>=26.1.2"
 
 # update permissions & change user
 RUN chgrp -R 0 /app && chmod -R g=u /app

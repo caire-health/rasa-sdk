@@ -20,6 +20,10 @@ RUN apt-get update -qq \
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 100 \
    && update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 100
 
+# upgrade system pip (Ubuntu 22.04 ships 23.0.1 which has known CVEs)
+# hadolint ignore=DL3013
+RUN pip install --no-cache-dir "pip>=26.1.2"
+
 FROM base AS python_builder
 
 ARG POETRY_VERSION=1.8.2
