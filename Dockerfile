@@ -44,10 +44,10 @@ COPY . /app/
 WORKDIR /app
 
 # hadolint ignore=SC1091,DL3013
-RUN pip install --no-cache-dir "pip>=25.1.1" && \
+RUN pip install --no-cache-dir "pip>=26.1.2" && \
   python -m venv /opt/venv && \
   . /opt/venv/bin/activate && \
-  pip install --no-cache-dir "pip>=25.1.1" && \
+  pip install --no-cache-dir "pip>=26.1.2" && \
   pip install --no-cache-dir wheel && \
   poetry install --no-dev --no-root --no-interaction
 
@@ -67,7 +67,7 @@ RUN find . -name '*.whl' -maxdepth 1 -exec basename {} \; | awk -F - '{ gsub("_"
   && rm -rf /opt/venv \
   && python -m venv /opt/venv \
   && . /opt/venv/bin/activate \
-  && pip install --no-cache-dir "pip>=25.1.1" \
+  && pip install --no-cache-dir "pip>=26.1.2" \
   && pip install --no-cache-dir --no-index --find-links=/wheels -r /wheels/requirements.txt \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
   && rm -rf /wheels \
@@ -84,7 +84,7 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 # upgrade system pip (Ubuntu 22.04 ships 23.0.1 which has known CVEs)
 # hadolint ignore=DL3013
-RUN pip install --no-cache-dir "pip>=25.1.1"
+RUN /usr/bin/pip install --no-cache-dir "pip>=26.1.2"
 
 # update permissions & change user
 RUN chgrp -R 0 /app && chmod -R g=u /app
