@@ -100,6 +100,7 @@ h11 = "0.16.0"
 httpcore = "^1"
 httpx  = "^0.28"
 anyio = ">=4.14.2"  # CVE-2026-64847: TLS certificate spoofing via IDNA 2003 hostname encoding
+thrift = ">=0.24.0"  # CVE-2026-41608/CVE-2026-43871/CVE-2026-66053: vulnerable < 0.24.0
 
 [tool.poetry.dev-dependencies]
 pytest-cov = "^4.1.0"
