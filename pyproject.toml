@@ -94,7 +94,7 @@ click = ">=8.2.0"             # CVE-2026-7246: vulnerable <= 8.1.8
 idna = ">=3.15"  # CVE-2026-45409: vulnerable < 3.15
 urllib3 = ">=2.8.0"  # CVE-2026-97687/97689/97688 + prior CVE-2026-44431/44432: vulnerable < 2.8.0
 ujson = ">=5.12.2"  # CVE-2026-44660/CVE-2026-54911: vulnerable <= 5.12.1
-certifi = "^2024.8"
+certifi = ">=2024.8"
 googleapis-common-protos = "^1.65"
 h11 = "0.16.0"
 httpcore = "^1"
