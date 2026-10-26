@@ -78,7 +78,7 @@ Sanic-Cors = "^2"  # CVE-2026-37737: vulnerable <= 2.2.0; no fixed release on Py
 "ruamel.yaml" = ">=0.16.5,<0.18.0"
 websockets = ">=10.0,<16.0"
 pluggy = "^1.0.0"
-opentelemetry-api = "^1"
+opentelemetry-api = ">=1.45.1"  # CVE-2026-114603: vulnerable <=1.45.0
 opentelemetry-sdk = "^1"
 opentelemetry-exporter-jaeger = "^1"
 opentelemetry-exporter-otlp = "^1"
