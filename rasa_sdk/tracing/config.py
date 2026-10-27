@@ -6,7 +6,6 @@ import os
 from typing import Any, Dict, Optional, Text
 
 import grpc
-from opentelemetry.exporter.jaeger.thrift import JaegerExporter
 from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
 from opentelemetry.sdk.resources import SERVICE_NAME, Resource
 from opentelemetry.sdk.trace import TracerProvider
@@ -111,6 +110,8 @@ class JaegerTracerConfigurer(TracerConfigurer):
         :param cfg: The configuration to be read for configuring tracing.
         :return: The configured `TracerProvider`.
         """
+        from opentelemetry.exporter.jaeger.thrift import JaegerExporter
+
         provider = TracerProvider(
             resource=Resource.create({SERVICE_NAME: TRACING_SERVICE_NAME})
         )
